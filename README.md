@@ -149,3 +149,8 @@ ribbon:
       - [spring.application.name].yaml `user-nacos-service.yaml` **不会变(放共享配置)**
       - 优先级: **服务名-profile.yaml > 服务名.yaml > 本地配置**
 4. 搭建 Nacos 集群
+   - 搭建 MySQL 集群并初始化数据库表
+   - 下载 nacos
+   - 修改集群配置
+   - 分别启动多个 nacos 结点
+   - Nginx 反向代理
