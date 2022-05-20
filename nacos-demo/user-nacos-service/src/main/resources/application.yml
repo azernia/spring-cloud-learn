@@ -15,6 +15,7 @@ spring:
       discovery:
         server-addr: localhost:8848 # nacos 服务地址
         cluster-name: SZ # 集群名称
+        namespace: 678defae-d920-4ab3-99f7-6b0518b28764 # 命名空间ID
 logging:
   level:
     com.rui: debug
