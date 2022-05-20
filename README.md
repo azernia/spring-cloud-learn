@@ -104,3 +104,17 @@ ribbon:
 3. 饥饿加载
    - 开启饥饿加载
    - 指定饥饿加载的微服务名称
+
+## Nacos
+1. Nacos 服务搭建
+   - 下载
+   - 解压
+   - 执行命令
+   ```shell
+    sh ./startup.sh -m standalone # 单机启动
+   # Windows
+   startup.cmd -m standalone
+   ```
+2. Nacos 服务注册或发现
+   - 引入 nacos.discovery 依赖
+   - 配置 nacos 地址 spring.cloud.nacos.server-addr
