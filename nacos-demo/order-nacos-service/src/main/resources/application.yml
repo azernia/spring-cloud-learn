@@ -14,8 +14,13 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848 # nacos 服务地址
+        cluster-name: SZ
 logging:
   level:
     com.rui: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+
+user-nacos-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 优先使用本地集群,本地集群中进行随机规则

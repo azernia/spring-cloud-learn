@@ -118,3 +118,11 @@ ribbon:
 2. Nacos 服务注册或发现
    - 引入 nacos.discovery 依赖
    - 配置 nacos 地址 spring.cloud.nacos.server-addr
+3. Nacos 服务分集存储模型
+    - 服务-》集群-》实例
+4. 设置实例集群属性
+   - 修改 application.yml 文件，添加 spring.cloud.nacos.discovery.cluster-name 属性
+5. NacosRule 负载均衡策略
+   - 优先选择统计群服务实例列表
+   - 本地集群找不到提供者，才去其他集群寻找，并且会告警
+   - 确定可用实例列表后再采用随机负载均衡挑选实例
