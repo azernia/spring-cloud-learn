@@ -10,5 +10,7 @@ spring:
       config:
         file-extension: yaml
         server-addr: localhost:8848
+#        server-addr: localhost:80
       discovery:
         server-addr: localhost:8848
+#        server-addr: localhost:80
