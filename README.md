@@ -55,3 +55,7 @@
 - 引入依赖
 - 启动类添加 `@EnableEurekaServer` 注解
 - 配置 `application.yml`
+
+### 搭建 EurekaClient
+- 引入依赖
+- 配置 `application.yml`
