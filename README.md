@@ -59,3 +59,9 @@
 ### 搭建 EurekaClient
 - 引入依赖
 - 配置 `application.yml`
+
+### 服务的发现
+- 引入 eureka-client 依赖
+- 配置 eureka 地址
+- RestTemplate 添加 @LoadBalance 注解
+- 将 ip 替换为服务名称
