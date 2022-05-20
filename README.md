@@ -65,3 +65,42 @@
 - 配置 eureka 地址
 - RestTemplate 添加 @LoadBalance 注解
 - 将 ip 替换为服务名称
+
+## Ribbon 负载均衡
+### 流程
+1. service 发起请求
+2. Ribbon 拦截
+3. 调用注册中心
+4. 进行负载均衡
+5. 调用其他 service
+
+### 饥饿加载
+- Ribbon 默认采用懒加载
+- 饥饿加载在项目启动时进行加载
+- 配置
+```yaml
+ribbon:
+  eager-load:
+    enabled: true # 开启饥饿加载
+    clients: user-service # 指定服务对该服务进行饥饿加载
+```
+```yaml
+# 配置多个
+ribbon:
+  eager-load:
+    enabled: true # 开启饥饿加载
+    clients:
+      - user-service
+      - xxx-service
+```
+
+### 总结
+1. Ribbon 负载均衡规则
+   - 规则接口是 IRule
+   - 默认实现是 ZoneAvoidanceRule，根据 zone 选择服务列表，然后轮询
+2. 负载均衡自定义方式
+   - 代码方式
+   - 配置方式
+3. 饥饿加载
+   - 开启饥饿加载
+   - 指定饥饿加载的微服务名称
