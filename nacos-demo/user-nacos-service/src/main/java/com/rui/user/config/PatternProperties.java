@@ -16,4 +16,8 @@ public class PatternProperties {
 
     private String dateformat;
 
+    private String b;
+
+    private String name;
+
 }

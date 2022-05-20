@@ -2,6 +2,7 @@
 spring:
   application:
     name: user-nacos-service
+  # 选择 nacos 中的环境
   profiles:
     active: dev # 环境
   cloud:

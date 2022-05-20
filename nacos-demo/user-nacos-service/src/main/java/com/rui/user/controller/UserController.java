@@ -43,4 +43,9 @@ public class UserController {
     public String now() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(patternProperties.getDateformat()));
     }
+
+    @GetMapping("/prop")
+    public PatternProperties prop() {
+        return patternProperties;
+    }
 }

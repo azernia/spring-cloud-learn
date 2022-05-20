@@ -21,3 +21,5 @@ logging:
     com.rui: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+pattern:
+  name: local-321

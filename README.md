@@ -144,4 +144,8 @@ ribbon:
     - 方式一：在 @Value 所在的类添加 @RefreshScope
     - 方式二：使用 @ConfigurationProperties `推荐`
 3. 配置共享
+    - 微服务启动时会从 nacos 读取多个配置文件
+      - [spring.application.name]-[spring.profile.active].yaml `user-nacos-service-dev.yaml` **会变**
+      - [spring.application.name].yaml `user-nacos-service.yaml` **不会变(放共享配置)**
+      - 优先级: **服务名-profile.yaml > 服务名.yaml > 本地配置**
 4. 搭建 Nacos 集群
