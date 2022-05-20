@@ -106,7 +106,7 @@ ribbon:
    - 指定饥饿加载的微服务名称
 
 ## Nacos
-1. Nacos 服务搭建
+### Nacos 服务搭建
    - 下载
    - 解压
    - 执行命令
@@ -115,22 +115,33 @@ ribbon:
    # Windows
    startup.cmd -m standalone
    ```
-2. Nacos 服务注册或发现
+### Nacos 服务注册或发现
    - 引入 nacos.discovery 依赖
    - 配置 nacos 地址 spring.cloud.nacos.server-addr
-3. Nacos 服务分集存储模型
+### Nacos 服务分集存储模型
     - 服务-》集群-》实例
-4. 设置实例集群属性
+### 设置实例集群属性
    - 修改 application.yml 文件，添加 spring.cloud.nacos.discovery.cluster-name 属性
-5. NacosRule 负载均衡策略
+### NacosRule 负载均衡策略
    - 优先选择统计群服务实例列表
    - 本地集群找不到提供者，才去其他集群寻找，并且会告警
    - 确定可用实例列表后再采用随机负载均衡挑选实例
-6. 权重配置
-    - 权重越大访问评率越高
-    - Nacos 控制台配置
-    - 为 0 时完全不会访问
-7. 环境隔离
+### 权重配置
+   - 权重越大访问评率越高
+   - Nacos 控制台配置
+   - 为 0 时完全不会访问
+### 环境隔离
    - namespace-》group-》service/data
    - 创建 namespace，nacos 控制台中配置
    - 不同 namespace 下的服务是不可见的
+### Nacos 配置管理
+1. 统一配置管理
+    - nacos 控制台中配置
+    - data id：[服务名称]-[profile].[后缀]
+    - 内容为需要热更新的配置
+2. 配置热更新
+    - bootstrap.yml 优先级 > application.yml
+    - 方式一：在 @Value 所在的类添加 @RefreshScope
+    - 方式二：使用 @ConfigurationProperties `推荐`
+3. 配置共享
+4. 搭建 Nacos 集群

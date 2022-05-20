@@ -11,8 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @MapperScan("com.rui.order.mapper")
 @SpringBootApplication
-public class OrderApplication {
+public class OrderNacosApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class, args);
+        SpringApplication.run(OrderNacosApplication.class, args);
     }
 }

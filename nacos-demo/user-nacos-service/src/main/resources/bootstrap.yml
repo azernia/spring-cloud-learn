@@ -1,0 +1,13 @@
+# 引导文件
+spring:
+  application:
+    name: user-nacos-service
+  profiles:
+    active: dev # 环境
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: localhost:8848
+      discovery:
+        server-addr: localhost:8848

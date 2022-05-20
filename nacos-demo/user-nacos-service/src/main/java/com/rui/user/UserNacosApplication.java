@@ -11,8 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @MapperScan("com.rui.user.mapper")
 @SpringBootApplication
-public class UserApplication {
+public class UserNacosApplication {
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class, args);
+        SpringApplication.run(UserNacosApplication.class, args);
     }
 }
