@@ -15,6 +15,7 @@ spring:
       discovery:
         server-addr: localhost:8848 # nacos 服务地址
         cluster-name: SZ
+        ephemeral: false # 设为非临时实例
 logging:
   level:
     com.rui: debug
