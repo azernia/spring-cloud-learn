@@ -1,7 +1,7 @@
 package com.rui.order.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.rui.order.clients.UserClient;
+import com.rui.feign.clients.UserClient;
 import com.rui.order.mapper.OrderMapper;
 import com.rui.order.pojo.Order;
 import com.rui.order.service.OrderService;

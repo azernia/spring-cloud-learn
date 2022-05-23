@@ -1,6 +1,7 @@
 package com.rui.order;
 
-import com.rui.order.config.DefaultFeignConfig;
+import com.rui.feign.clients.UserClient;
+import com.rui.feign.config.DefaultFeignConfig;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +12,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *
  * @author rui
  */
-@EnableFeignClients(defaultConfiguration = DefaultFeignConfig.class)
+@EnableFeignClients(defaultConfiguration = DefaultFeignConfig.class, clients = {UserClient.class})
+// @EnableFeignClients
 @MapperScan("com.rui.order.mapper")
 @SpringBootApplication
 public class OrderFeignApplication {

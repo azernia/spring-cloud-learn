@@ -205,3 +205,10 @@ public class FeignClientConfig() {
 ### Feign 的性能优化
 - 日志级别尽量用 BASIC
 - 使用 HttpClient 或 OKHttp 代替 URLConnection
+
+### Feign 的最佳实践
+- 继承：给消费者的 FeignClient 和提供者的 Controller 定义统一的父接口作为标准 <p style="color:red;">紧耦合</p>
+- 抽取：将 FeignClient 抽取为独立的模块，并且把有关接口的 pojo、默认的 Feign 配置都放到这个模块中，提供给所有的消费者使用
+- FeignClient 不在 SpringBootApplication 的扫描包范围时，这些 FeignClient 无法使用。解决方案
+  - 指定 FeignClient 所在的包`@EnableFeignClient(basePackages = "com.rui.feign.clients)`
+  - 指定 FeignClient 字节码 `@EnableFeignClient(clients = {UserClient.class})`

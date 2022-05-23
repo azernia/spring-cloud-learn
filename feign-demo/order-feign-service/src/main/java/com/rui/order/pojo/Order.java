@@ -2,6 +2,7 @@ package com.rui.order.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.rui.feign.pojo.User;
 import lombok.Data;
 
 @Data

@@ -11,6 +11,7 @@
     <modules>
         <module>user-feign-service</module>
         <module>order-feign-service</module>
+        <module>feign-api</module>
     </modules>
 
     <properties>
