@@ -212,3 +212,14 @@ public class FeignClientConfig() {
 - FeignClient 不在 SpringBootApplication 的扫描包范围时，这些 FeignClient 无法使用。解决方案
   - 指定 FeignClient 所在的包`@EnableFeignClient(basePackages = "com.rui.feign.clients)`
   - 指定 FeignClient 字节码 `@EnableFeignClient(clients = {UserClient.class})`
+
+## 统一网关 Gateway
+### 为什么需要网关
+- 网关的功能
+  - 身份认证和权限校验
+  - 服务路由、负载均衡
+  - 请求限流
+- SpringCloud 网关实现的两种方式
+  - gateway
+  - zuul
+- Zuul 是基于 Servlet 的实现，属于阻塞式编程。SpringCloudGateway 基于 Spring5 中提供的 WebFlux，属于响应式编程的实现，具备更好的性能
