@@ -219,7 +219,19 @@ public class FeignClientConfig() {
   - 身份认证和权限校验
   - 服务路由、负载均衡
   - 请求限流
-- SpringCloud 网关实现的两种方式
-  - gateway
-  - zuul
+
+### SpringCloud 网关实现的两种方式
+- gateway
+- zuul
 - Zuul 是基于 Servlet 的实现，属于阻塞式编程。SpringCloudGateway 基于 Spring5 中提供的 WebFlux，属于响应式编程的实现，具备更好的性能
+
+### 路由的配置
+- 网关路由可以配置的内容
+  - 路由ID：路由的唯一标识
+  - uri：路由的目的地址，支持 lb，http
+  - predicates：路由断言
+  - filters：路由过滤器
+
+### 路由断言工厂
+![路由断言工厂](./assets/predicateFactory.png)
+- 所有规则都无法匹配时 404
