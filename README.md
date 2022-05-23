@@ -154,3 +154,17 @@ ribbon:
    - 修改集群配置
    - 分别启动多个 nacos 结点
    - Nginx 反向代理
+
+## http 客户端 Feign
+### 什么是 Feign
+- Feign 是一个声明式的 http 客户端
+
+### RestTemplate 方式调用存在的问题
+- 代码可读性差，编程体验不统一
+- 参数复杂 URL 难以维护
+
+### Feign 的使用步骤
+1. 引入依赖
+2. 添加 @EnableFeignClient 注解
+3. 编写 FeignClient 接口
+4. 使用 FeignClient 中的方法替换 RestTemplate
