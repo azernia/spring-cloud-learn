@@ -202,3 +202,6 @@ public class FeignClientConfig() {
 // 局部配置
 @FeignClient(value="user-feign-service", configuration = FeignClientConfig.class)
 ```
+### Feign 的性能优化
+- 日志级别尽量用 BASIC
+- 使用 HttpClient 或 OKHttp 代替 URLConnection
