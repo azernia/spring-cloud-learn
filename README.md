@@ -168,3 +168,37 @@ ribbon:
 2. 添加 @EnableFeignClient 注解
 3. 编写 FeignClient 接口
 4. 使用 FeignClient 中的方法替换 RestTemplate
+
+### 自定义 Feign 配置
+
+| 类型                  | 作用       | 说明                      |
+|---------------------|----------|-------------------------|
+| feign.logger.level  | 修改日志级别   | NONE、BASIC、HEADERS、FULL |
+| feign.codec.Decoder | 响应结果的解析器 | 对调用的结果解析                |
+| feign.codec.Encoder | 请求参数编码   |                         |
+| feign.Contract      | 支持的注解格式  | 默认为 SpringMVC 注解        |
+| feign.Retryer       | 失败重试机制   | 默认没有，不过会使用 Ribbon 的重试   |
+
+- 配置文件方式
+```yaml
+feign:
+  client:
+    config:
+#      default: # 全局生效
+      user-feign-service: # 指定服务
+        loggerLevel: FULL
+```
+- 代码方式
+```java
+public class FeignClientConfig() {
+    @Bean
+    public Logger.Level feignLogLevel() {
+        return Logger.Level.BASIC;
+    }
+}
+// 全局配置
+@EnableFeignClient(defaultConfiguration = FeignClientConfig.class)
+
+// 局部配置
+@FeignClient(value="user-feign-service", configuration = FeignClientConfig.class)
+```
