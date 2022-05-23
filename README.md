@@ -235,3 +235,30 @@ public class FeignClientConfig() {
 ### 路由断言工厂
 ![路由断言工厂](./assets/predicateFactory.png)
 - 所有规则都无法匹配时 404
+
+### 路由过滤器
+- GatewayFilter 是网关中提供的一种过滤器，可以对进入网关的请求和微服务返回的响应做处理，逻辑固定
+![路由过滤器流程](./assets/gatewayFilter.png)
+- Spring 提供了31种不同的路由过滤器工厂
+- GlobalFilter 全局过滤器，可自定义过滤器
+![全局过滤器](./assets/globalFilter.png)
+  
+### 过滤器执行顺序
+- 请求进入网关或碰到三类过滤器
+  - 当前路由的过滤器
+  - DefaultFilter
+  - GlobalFilter
+- 请求路由后，会将当前路由过滤器和 DefaultFilter、GlobalFilter 合并到一个过滤器链（集合）中，排序后一次执行每个过滤器
+- 每一个过滤器都必须指定一个 int 类型的 order 值，order 值越小优先级越高执行顺序越靠前
+- GlobalFilter 通过实现 Ordered 接口或添加 @Order 注解来指定 order 值
+- 路由过滤器和 DefaultFilter 的 order 由 Spring 指定，默认是按照声明顺序从 1 递增
+- <p style="color: red; font-weight: bold">当过滤器的 order 值一样时，会按照 DefaultFilter > 路由过滤器 > GlobalFilter 的顺序执行</p>
+![过滤器执行顺序远吗参考](./assets/src01.png)
+
+### 网关 CORS 跨域配置
+- 跨域问题主要包括
+  - 域名不同
+  - 域名相同，端口不同
+- 跨域问题：浏览器禁止请求的发起者与服务端发生跨域 ajax 请求，请求被浏览器拦截
+- 解决方案： CORS
+![网关跨域配置](./assets/gatewayCORS.png)

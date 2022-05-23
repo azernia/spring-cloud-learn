@@ -13,8 +13,28 @@ spring:
           uri: lb://user-gateway-service # 路由目标地址 lb 就是负载均衡
           predicates: # 路由断言，判断请求是否符合路由规则的条件
             - Path=/user/** # 路径断言，按照这个路径匹配，以 /user/ 开头
+#          filters:
+#            - AddRequestHeader=Truth,Rui is freaking awesome
         - id: order-gateway-service # 路由ID自定义，唯一
             #          uri: http://127.0.0.1:8081 # 路由目标地址 http 就是固定地址
           uri: lb://order-gateway-service # 路由目标地址 lb 就是负载均衡
           predicates: # 路由断言，判断请求是否符合路由规则的条件
             - Path=/order/** # 路径断言，按照这个路径匹配，以 /order/ 开头
+      default-filters: # 默认过滤器
+        - AddRequestHeader=Authorization,Rui is freaking awesome
+      # 全局跨域处理
+      globalcors: # 全局的跨域处理
+        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: # 允许哪些网站的跨域请求
+              - "http://127.0.0.1:5500"
+            allowedMethods: # 允许的跨域ajax的请求方式
+              - "GET"
+              - "POST"
+              - "DELETE"
+              - "PUT"
+              - "OPTIONS"
+            allowedHeaders: "*" # 允许在请求中携带的头信息
+            allowCredentials: true # 是否允许携带cookie
+            maxAge: 360000 # 这次跨域检测的有效期

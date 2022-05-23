@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试跨域</title>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            border-radius: 15%;
+            margin: 0 auto;
+        }
+        .btn-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .btn {
+            height: 40px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="btn-wrapper">
+            <button class="btn" onclick="testCORS()">CLICK ME</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.js"></script>
+    <script>
+        function testCORS() {
+            axios.get("http://localhost:10010/user/1?authorization=admin").then(resp => {
+                console.log(resp)
+            }).catch(error => {
+                console.error(error);
+            })
+        }
+    </script>
+</body>
+</html>
