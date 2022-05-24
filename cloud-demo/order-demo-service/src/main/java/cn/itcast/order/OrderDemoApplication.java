@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @MapperScan("cn.itcast.order.mapper")
 @SpringBootApplication
-public class OrderApplication {
+public class OrderDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class, args);
+        SpringApplication.run(OrderDemoApplication.class, args);
     }
 
 }

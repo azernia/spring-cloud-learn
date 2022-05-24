@@ -8,9 +8,9 @@
     <artifactId>cloud-demo</artifactId>
     <version>1.0</version>
     <modules>
-        <module>user-service</module>
-        <module>order-service</module>
-        <module>eureka-server</module>
+        <module>user-demo-service</module>
+        <module>order-demo-service</module>
+        <module>eureka-demo-server</module>
     </modules>
 
     <packaging>pom</packaging>
