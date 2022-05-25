@@ -262,3 +262,61 @@ public class FeignClientConfig() {
 - 跨域问题：浏览器禁止请求的发起者与服务端发生跨域 ajax 请求，请求被浏览器拦截
 - 解决方案： CORS
 ![网关跨域配置](./assets/gatewayCORS.png)
+
+## 初识 MQ
+### 同步通讯
+- 优点
+  - 时效性强，可以立即得到结果
+- 缺点
+  - 耦合度高：每次加入新的需求都要修改原来的代码
+  - 性能和吞吐能力下降
+  - 有额外的资源消耗
+  - 有级联失败问题
+### 异步通讯
+- 优点
+  - 解耦
+  - 新能提升，吞吐量高
+  - 服务没有强依赖，不用担心级联失败问题
+  - 没有额外的资源浪费
+  - 流量削峰
+- 缺点
+  - 依赖于`Broker(事件代理)`的可靠性、安全性、吞吐能力
+  - 结构复杂了，业务没有明显的流程线，不好追踪管理
+### 常见的 MQ
+- MQ (Message Queue) 消息队列
+![常见的MQ](./assets/commonMQ.png)
+
+### RabbitMQ
+- 结构
+![RabbitMQ结构](./assets/rabbitMQ01.png)
+- 概念
+  - channel：造作 MQ 的工具
+  - exchange：路由消息到队列中
+  - queue：缓存消息
+  - virtual host：虚拟主机，对 queue，exchange 等资源的逻辑划分
+- 常见消息模型
+  - 基本消息队列
+  ![基本消息队列](./assets/rabbitMQ02.png)
+  - 工作消息队列
+  ![工作消息队列](./assets/rabbitMQ03.png)
+  - 发布订阅
+    - Fanout Exchange：广播
+    ![广播](./assets/rabbitMQ04.png)
+    - Direct Exchange：路由
+    ![路由](./assets/rabbitMQ05.png)
+    - Topic Exchange：主题
+    ![主题](./assets/rabbitMQ06.png)
+- 基本消息队列的消息发送流程
+  1. 建立 connection
+  2. 创建 channel
+  3. 利用 channel 声明队列
+  4. 利用 channel 向队列发送消息
+- 基本消息队列的消息接收流程
+  1. 建立 connection
+  2. 创建 channel
+  3. 利用 channel 声明队列
+  4. 定义 consumer 的消费行为 handleDelivery()
+  5. 利用 channel 向队列发送消息
+### SpringAMQP
+- AMQP Advanced Message Queuing Protocol
+- SpringAMQP 基于 AMQP 的 API 规范
