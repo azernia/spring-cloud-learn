@@ -66,4 +66,25 @@ public class RabbitMQListener {
         System.out.println("direct queue 2 接收到的消息：【" + msg+ "】");
     }
 
+    @RabbitListener(
+            bindings = @QueueBinding(
+                    value = @Queue(name = "topic.queue1"),
+                    exchange = @Exchange(name = "rui.topic", type = ExchangeTypes.TOPIC),
+                    key = {"china.#"}
+            )
+    )
+    public void listenTopicQueue1(String msg) {
+        System.out.println("topic queue 1 接收到的消息：【" + msg+ "】");
+    }
+
+    @RabbitListener(
+            bindings = @QueueBinding(
+                    value = @Queue(name = "topic.queue2"),
+                    exchange = @Exchange(name = "rui.topic", type = ExchangeTypes.TOPIC),
+                    key = {"#.news"}
+            )
+    )
+    public void listenTopicQueue2(String msg) {
+        System.out.println("topic queue 2 接收到的消息：【" + msg+ "】");
+    }
 }

@@ -306,6 +306,10 @@ public class FeignClientConfig() {
     ![路由](./assets/rabbitMQ05.png)
     - Topic Exchange：主题
     ![主题](./assets/rabbitMQ06.png)
+      - TopicExchange 与 DirectExchange 类型，区别在于 routingKye 必须由多个单词组成，由 . 分隔
+      - 可使用通配符
+        - #：代指0个或多个单词
+        - *：代指一个单词
 - 基本消息队列的消息发送流程
   1. 建立 connection
   2. 创建 channel

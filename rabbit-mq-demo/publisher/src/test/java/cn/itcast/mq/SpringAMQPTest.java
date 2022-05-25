@@ -50,4 +50,11 @@ public class SpringAMQPTest {
         String message = "hello blue";
         rabbitTemplate.convertAndSend(exchangeName, "red", message);
     }
+
+    @Test
+    public void testSendTopicExchange() {
+        String exchangeName = "rui.topic";
+        String message = "hello weather";
+        rabbitTemplate.convertAndSend(exchangeName, "china.weather", message);
+    }
 }
