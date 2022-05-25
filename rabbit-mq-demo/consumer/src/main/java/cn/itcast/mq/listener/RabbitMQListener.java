@@ -30,4 +30,14 @@ public class RabbitMQListener {
         Thread.sleep(200);
     }
 
+    @RabbitListener(queues = "fanout.queue1")
+    public void listenFanoutQueue1Message(String msg) {
+        System.out.println("fanout queue 1 接收到的消息：【" + msg+ "】");
+    }
+
+    @RabbitListener(queues = "fanout.queue2")
+    public void listenFanoutQueue2Message(String msg) {
+        System.out.println("fanout queue 2 接收到的消息：【" + msg+ "】");
+    }
+
 }
