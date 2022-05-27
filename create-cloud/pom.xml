@@ -6,22 +6,27 @@
 		<module>order-center</module>
 		<module>stock-center</module>
 	</modules>
+	<!-- 以后继承公司自己的父工程 -->
+	<!--<parent></parent>-->
 	<!-- Spring Boot 版本管理器 -->
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+	<!--<parent>-->
+	<!--	<groupId>org.springframework.boot</groupId>-->
+	<!--	<artifactId>spring-boot-starter-parent</artifactId>-->
+	<!--	<version>2.3.12.RELEASE</version>-->
+	<!--	<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+	<!--</parent>-->
 	<groupId>com.rui</groupId>
 	<artifactId>create-cloud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>create-cloud</name>
 	<description>create-cloud</description>
-	<!-- 不打包 -->
+	<!-- 不打包(父工程添加) -->
 	<packaging>pom</packaging>
 	<properties>
 		<java.version>1.8</java.version>
+		<spring.boot-version>2.3.12.RELEASE</spring.boot-version>
+		<spring.cloud.alibaba-version>2.2.7.RELEASE</spring.cloud.alibaba-version>
+		<spring.cloud-version>Hoxton.SR12</spring.cloud-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -35,6 +40,37 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<!-- 依赖管理，子 maven 项目需要显示声明，未在 management 中的会直接继承 -->
+	<dependencyManagement>
+		<!-- SpringCloud Alibaba 版本管理 -->
+		<dependencies>
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>${spring.cloud.alibaba-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- spring boot 版本管理 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring.boot-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- spring cloud 版本管理 -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring.cloud-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>

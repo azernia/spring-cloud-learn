@@ -1,2 +1,11 @@
 server:
   port: 8081
+spring:
+  application:
+    name: stock-center
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        username: nacos
+        password: nacos
