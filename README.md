@@ -325,5 +325,8 @@ public class FeignClientConfig() {
 - AMQP Advanced Message Queuing Protocol
 - SpringAMQP 基于 AMQP 的 API 规范
 
+## Sentinel
+
+
 ## 权限配置
 - 一般在网关中处理
