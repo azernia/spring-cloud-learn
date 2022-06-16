@@ -25,6 +25,7 @@
         <mybaits-plus-version>3.5.1</mybaits-plus-version>
         <mybatis-plus-generator-version>3.4.1</mybatis-plus-generator-version>
         <fastjson-version>1.2.79</fastjson-version>
+        <nimbus-jose-jwt.version>9.16.1</nimbus-jose-jwt.version>
     </properties>
 
     <dependencies>
@@ -94,6 +95,14 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson-version}</version>
             </dependency>
+
+            <!-- JWT -->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
