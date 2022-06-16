@@ -20,7 +20,11 @@
         <spring.cloud.alibaba-version>2.2.7.RELEASE</spring.cloud.alibaba-version>
         <spring.cloud-version>Hoxton.SR12</spring.cloud-version>
         <rui.version>1.0-SNAPSHOT</rui.version>
-        <hutool.version>5.5.8</hutool.version>
+        <hutool.version>5.8.2</hutool.version>
+        <druid-version>1.2.8</druid-version>
+        <mybaits-plus-version>3.5.1</mybaits-plus-version>
+        <mybatis-plus-generator-version>3.4.1</mybatis-plus-generator-version>
+        <fastjson-version>1.2.79</fastjson-version>
     </properties>
 
     <dependencies>
@@ -63,6 +67,32 @@
                 <version>${spring.cloud.alibaba-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- 数据操作相关依赖 -->
+            <!-- Druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-version}</version>
+            </dependency>
+            <!-- MyBatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybaits-plus-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator-version}</version>
+            </dependency>
+
+            <!-- Json 相关 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
