@@ -14,6 +14,7 @@
     docker  run \
     --name nacos -d \
     -p 8848:8848 \
+    -p 9848:9848\
     --privileged=true \
     --restart=always \
     --link mysql:mysql \
@@ -47,3 +48,9 @@ skip-name-resolve
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -v /usr/local/my-soft/mysql/conf/hmy.cnf:/etc/mysql/conf.d/hmy.cnf -v /usr/local/my-soft/mysql/data:/var/lib/mysql -d arm64v8/mysql:oracle
 
 ```
+
+## 遇到的问题
+```shell
+Server check fail, please check server 10.211.55.9 ,port 9848 is available , error ={}
+```
+docker 容器需要映射 9848 端口

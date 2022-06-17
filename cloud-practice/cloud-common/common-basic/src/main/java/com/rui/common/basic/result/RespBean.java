@@ -27,6 +27,10 @@ public class RespBean<T> implements Serializable {
         return success(null, msg);
     }
 
+    public static <T> RespBean<T> success(T data) {
+        return success(data, null);
+    }
+
     public static <T> RespBean<T> success(T data, String msg) {
         RespBean<T> result = new RespBean<>();
         result.setCode(ResultCode.SUCCESS.getCode());
