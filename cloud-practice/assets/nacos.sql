@@ -1,5 +1,3 @@
-create database ams_config;
-
 /*
  Navicat Premium Data Transfer
 
@@ -221,7 +219,7 @@ CREATE TABLE `his_config_info`
 -- ----------------------------
 -- Table structure for permissions
 -- ----------------------------
-DROP TABLE IF EXISTS sys_permissions;
+DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE `permissions`
 (
     `role`     varchar(50) COLLATE utf8mb4_bin  NOT NULL,
@@ -241,7 +239,7 @@ COMMIT;
 -- ----------------------------
 -- Table structure for roles
 -- ----------------------------
-DROP TABLE IF EXISTS sys_roles;
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles`
 (
     `username` varchar(50) COLLATE utf8mb4_bin NOT NULL,
@@ -255,7 +253,7 @@ CREATE TABLE `roles`
 -- Records of roles
 -- ----------------------------
 BEGIN;
-INSERT INTO sys_roles
+INSERT INTO `roles`
 VALUES ('nacos', 'ROLE_ADMIN');
 COMMIT;
 
@@ -317,7 +315,7 @@ COMMIT;
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------
-DROP TABLE IF EXISTS sys_users;
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`
 (
     `username` varchar(50) COLLATE utf8mb4_bin  NOT NULL,
@@ -332,9 +330,8 @@ CREATE TABLE `users`
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO sys_users
+INSERT INTO `users`
 VALUES ('nacos', '$2a$10$EuWPZHzz32dJN7jexM34MOeYirDdFAZm2kuWj7VEOJhhZkDrxfvUu', 1);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
-
