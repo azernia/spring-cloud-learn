@@ -1,6 +1,7 @@
 package com.rui.auth.client;
 
 import com.rui.auth.enums.PasswordEncoderTypeEnum;
+import com.rui.common.basic.constants.OAuth2Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
@@ -19,14 +20,14 @@ import org.springframework.stereotype.Service;
 public class ClientDetailsServiceImpl implements ClientDetailsService {
     @Override
     public ClientDetails loadClientByClientId(String clientId) throws ClientRegistrationException {
-        // 后面通过feign从管理端获取，目前写死
+        //TODO: 后面通过feign从管理端获取，目前写死
         BaseClientDetails clientDetails = new BaseClientDetails(
-                "rui",
-                "",
-                "all",
-                "password,client_credentials,refresh_token,authorization_code",
-                "",
-                "http://www.baidu.com"
+                OAuth2Constants.CLIENT_ID,
+                OAuth2Constants.RESOURCE_IDS,
+                OAuth2Constants.SCOPES,
+                OAuth2Constants.GRANT_TYPES,
+                OAuth2Constants.AUTHORITIES,
+                OAuth2Constants.REDIRECT_URI
 
         );
         clientDetails.setClientSecret(PasswordEncoderTypeEnum.NOOP.getPrefix() + "rui");

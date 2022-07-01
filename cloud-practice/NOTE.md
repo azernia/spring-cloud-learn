@@ -6,7 +6,8 @@
         -v /usr/local/my-soft/redis/redis.conf:/etc/redis/redis.conf \
         -v /usr/local/my-soft/redis/data:/data:rw \
         -d redis redis-server /etc/redis/redis.conf \
-        --appendonly yes
+        --appendonly yes \
+        --requirepass "root"
 ```
 
 ## docker nacos

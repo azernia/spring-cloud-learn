@@ -221,7 +221,7 @@ CREATE TABLE `his_config_info`
 -- ----------------------------
 -- Table structure for permissions
 -- ----------------------------
-DROP TABLE IF EXISTS `permissions`;
+DROP TABLE IF EXISTS sys_permissions;
 CREATE TABLE `permissions`
 (
     `role`     varchar(50) COLLATE utf8mb4_bin  NOT NULL,
@@ -241,7 +241,7 @@ COMMIT;
 -- ----------------------------
 -- Table structure for roles
 -- ----------------------------
-DROP TABLE IF EXISTS `roles`;
+DROP TABLE IF EXISTS sys_roles;
 CREATE TABLE `roles`
 (
     `username` varchar(50) COLLATE utf8mb4_bin NOT NULL,
@@ -255,7 +255,7 @@ CREATE TABLE `roles`
 -- Records of roles
 -- ----------------------------
 BEGIN;
-INSERT INTO `roles`
+INSERT INTO sys_roles
 VALUES ('nacos', 'ROLE_ADMIN');
 COMMIT;
 
@@ -317,7 +317,7 @@ COMMIT;
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS sys_users;
 CREATE TABLE `users`
 (
     `username` varchar(50) COLLATE utf8mb4_bin  NOT NULL,
@@ -332,7 +332,7 @@ CREATE TABLE `users`
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO `users`
+INSERT INTO sys_users
 VALUES ('nacos', '$2a$10$EuWPZHzz32dJN7jexM34MOeYirDdFAZm2kuWj7VEOJhhZkDrxfvUu', 1);
 COMMIT;
 

@@ -28,6 +28,10 @@ public class AuthController {
         this.tokenEndpoint = tokenEndpoint;
     }
 
+    /**
+     * 手动实现 /oauth/token
+     * 覆盖原方法
+     */
     @PostMapping("/token")
     public RespBean<OAuth2AccessToken> postAccessToken(
             Principal principal,
