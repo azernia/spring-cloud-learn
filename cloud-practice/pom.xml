@@ -10,6 +10,7 @@
     <modules>
         <module>cloud-common</module>
         <module>cloud-auth</module>
+        <module>cloud-admin</module>
     </modules>
 
     <packaging>pom</packaging>
