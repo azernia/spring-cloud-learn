@@ -1,7 +1,7 @@
 package com.rui.admin.service;
 
+import com.rui.admin.system.model.entity.Client;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.rui.admin.model.entity.Client;
 
 /**
  * 系统客户端信息 服务类

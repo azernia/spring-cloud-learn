@@ -1,5 +1,7 @@
 package com.rui.admin.listener;
 
+import lombok.AllArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +12,10 @@ import org.springframework.stereotype.Component;
  * @author rui
  */
 @Component
-public interface ResourcePermissionCatchListener {
+@AllArgsConstructor
+public class ResourcePermissionCatchListener implements CommandLineRunner {
 
+    @Override
+    public void run(String... args) throws Exception {
+    }
 }

@@ -1,5 +1,6 @@
 package com.rui.common.redis.utils;
 
+import lombok.AllArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -17,12 +18,13 @@ import java.util.concurrent.TimeUnit;
  * @author rui
  */
 @Component
+@AllArgsConstructor
 public class RedisUtils {
 
     /**
      * 注入redisTemplate bean
      */
-    private RedisTemplate<String, Object> redisTemplate;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     /**
      * 指定缓存失效时间
