@@ -55,3 +55,6 @@ docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -v /usr/local
 Server check fail, please check server 10.211.55.9 ,port 9848 is available , error ={}
 ```
 docker 容器需要映射 9848 端口
+
+## 网关权限流程
+![网关权限流程](./assets/gateway-auth.png)
