@@ -34,7 +34,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     @Override
     public void refreshPermission() {
         redisUtils.del(GlobalConstants.URL_PERM_ROLES_KEY);
-        Map<String, List<String>> urlMapRoles = getSysPermissions().stream().collect(Collectors.toMap(PermissionVO::getUrlPerm, PermissionVO::getRoleCodes));
-        redisUtils.set(GlobalConstants.URL_PERM_ROLES_KEY, urlMapRoles);
+        Map<String, Object> urlMapRoles = getSysPermissions().stream().collect(Collectors.toMap(PermissionVO::getUrlPerm, PermissionVO::getRoleCodes));
+        redisUtils.hashSetByKeys(GlobalConstants.URL_PERM_ROLES_KEY, urlMapRoles);
     }
 }

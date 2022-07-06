@@ -1,15 +1,17 @@
 package com.rui.auth.controller;
 
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
 import com.rui.common.basic.result.RespBean;
+import lombok.AllArgsConstructor;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.endpoint.TokenEndpoint;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.security.KeyPair;
 import java.security.Principal;
+import java.security.interfaces.RSAPublicKey;
 import java.util.Map;
 
 /**
@@ -19,14 +21,13 @@ import java.util.Map;
  * @author rui
  */
 @RestController
+@AllArgsConstructor
 @RequestMapping("/oauth")
 public class AuthController {
 
     private final TokenEndpoint tokenEndpoint;
 
-    public AuthController(TokenEndpoint tokenEndpoint) {
-        this.tokenEndpoint = tokenEndpoint;
-    }
+    private final KeyPair keyPair;
 
     /**
      * 手动实现 /oauth/token
@@ -40,4 +41,12 @@ public class AuthController {
         OAuth2AccessToken accessToken = tokenEndpoint.postAccessToken(principal, parameters).getBody();
         return RespBean.success(accessToken);
     }
+
+    @GetMapping("/public-key")
+    public Map<String, Object> getPublicKey() {
+        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+        RSAKey rsaKey = new RSAKey.Builder(publicKey).build();
+        return new JWKSet(rsaKey).toJSONObject();
+    }
+
 }
