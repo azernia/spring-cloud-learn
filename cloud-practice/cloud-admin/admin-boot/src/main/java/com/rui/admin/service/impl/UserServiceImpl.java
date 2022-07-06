@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.rui.admin.mapper.UserMapper;
 import com.rui.admin.model.entity.User;
 import com.rui.admin.service.UserService;
+import com.rui.api.model.request.UserDTO;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,4 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
+    @Override
+    public UserDTO getUserByUsername(String username) {
+        return baseMapper.getUserByUsername(username);
+    }
 }

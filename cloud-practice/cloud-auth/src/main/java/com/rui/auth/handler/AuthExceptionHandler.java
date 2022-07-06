@@ -72,4 +72,11 @@ public class AuthExceptionHandler {
     public RespBean<ResultCode> handleInvalidTokenExceptionException(InvalidTokenException e) {
         return RespBean.failed(e.getMessage());
     }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({Exception.class})
+    public RespBean<ResultCode> handleException(Exception e) {
+        log.info("系统异常{}", e);
+        return RespBean.failed(e.getMessage());
+    }
 }

@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * 用户信息表 DTO
  *
@@ -56,4 +58,9 @@ public class UserDTO {
      * 用户邮箱
      */
     private String email;
+
+    /**
+     * 角色编号集合
+     */
+    private List<String> roleCodes;
 }

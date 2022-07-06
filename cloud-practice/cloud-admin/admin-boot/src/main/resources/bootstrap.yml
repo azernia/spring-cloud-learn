@@ -1,5 +1,5 @@
 server:
-  port: 2004
+  port: 20004
 
 spring:
   application:
@@ -8,10 +8,10 @@ spring:
     nacos:
       # 注册中心
       discovery:
-        server-addr: @nacos-addr@
+        server-addr: 10.211.55.9:8848
       # 配置中心
       config:
-        server-addr: @nacos-addr@
+        server-addr: 10.211.55.9:8848
         file-extension: yaml
         shared-configs[0]:
           data-id: cloud-common.yaml

@@ -56,6 +56,11 @@
             <version>${rui.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.rui</groupId>
+            <artifactId>admin-api</artifactId>
+            <version>${rui.version}</version>
+        </dependency>
 
     </dependencies>
 

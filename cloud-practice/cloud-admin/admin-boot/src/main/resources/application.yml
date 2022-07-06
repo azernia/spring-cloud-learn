@@ -1,11 +1,9 @@
-server:
-  port: 8081
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:mysql://@mysql-url@/cloud_admin?characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+      url: jdbc:mysql://10.211.55.9:3306/cloud_admin?characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai
       username: root
       password: 123456
       # 初始化时建立物理连接的个数
@@ -39,7 +37,7 @@ spring:
       # 合并多个DruidDataSource的监控数据
       use-global-data-source-stat: true
   redis:
-    host: @redis-url@
+    host: 182.92.152.31
     port: 6379
     password: 123456
     timeout: 5000
@@ -60,4 +58,4 @@ mybatis-plus:
   type-enums-package: com.rui.admin.model.entity
   mapper-locations: classpath*:com/rui/admin/**/mapper/*.xml
   configuration:
-    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
