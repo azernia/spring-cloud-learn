@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author rui
  */
 @SpringBootApplication
-public class GatewayApplication {
+public class LearnGatewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class, args);
+        SpringApplication.run(LearnGatewayApplication.class, args);
     }
 }
