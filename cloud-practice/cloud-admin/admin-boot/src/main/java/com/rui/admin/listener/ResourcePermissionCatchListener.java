@@ -1,5 +1,6 @@
 package com.rui.admin.listener;
 
+import com.rui.admin.service.PermissionService;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,10 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class ResourcePermissionCatchListener implements CommandLineRunner {
 
+    private final PermissionService permissionService;
+
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
+        permissionService.refreshPermission();
     }
 }

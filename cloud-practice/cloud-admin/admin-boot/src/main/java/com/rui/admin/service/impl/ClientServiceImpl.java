@@ -1,9 +1,9 @@
 package com.rui.admin.service.impl;
 
-import com.rui.admin.system.model.entity.Client;
-import com.rui.admin.system.mapper.ClientMapper;
-import com.rui.admin.system.service.ClientService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.rui.admin.mapper.ClientMapper;
+import com.rui.admin.model.entity.Client;
+import com.rui.admin.service.ClientService;
 import org.springframework.stereotype.Service;
 
 /**

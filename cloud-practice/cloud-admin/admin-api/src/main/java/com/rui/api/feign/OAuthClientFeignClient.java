@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @FeignClient(value = "cloud-admin", contextId = "oauth-client")
 public interface OAuthClientFeignClient {
-    @GetMapping("/api/oauth-client/getClientByClientId")
+    @GetMapping("/api/client/getClientByClientId")
     RespBean<ClientDTO> getClientByClientId(@RequestParam String clientId);
 }
