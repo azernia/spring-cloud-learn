@@ -1,18 +1,21 @@
 server:
-  port: 20001
+  port: 2004
+
 spring:
+  application:
+    name: cloud-admin
   cloud:
     nacos:
+      # 注册中心
+      discovery:
+        server-addr: @nacos-addr@
+      # 配置中心
       config:
         server-addr: @nacos-addr@
         file-extension: yaml
         shared-configs[0]:
-          data-id: cloud-common
+          data-id: cloud-common.yaml
           refresh: true
-      discovery:
-        server-addr: 10.211.55.9:8848
-  application:
-    name: cloud-auth
 logging:
   level:
     spring.: DEBUG

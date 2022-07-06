@@ -125,9 +125,24 @@
                 <artifactId>spring-security-oauth2-jose</artifactId>
                 <version>${spring-security-oauth2-jose-version}</version>
             </dependency>
-
-
         </dependencies>
     </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <!-- 开发环境 -->
+            <id>dev</id>
+            <!-- 默认选中 -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <active-properites>dev</active-properites>
+                <nacos-addr>10.211.55.9:8848</nacos-addr>
+                <mysql-url>10.211.55.8:3306</mysql-url>
+                <redis-url>10.211.55.8</redis-url>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
