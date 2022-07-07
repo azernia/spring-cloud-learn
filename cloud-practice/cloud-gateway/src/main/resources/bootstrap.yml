@@ -13,6 +13,3 @@ spring:
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yaml
-        shared-configs[0]:
-          data-id: ams-common.yaml
-          refresh: true

@@ -10,7 +10,6 @@ import com.rui.gateway.security.util.UrlPatternUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -44,8 +43,6 @@ public class ResourceServerManager implements ReactiveAuthorizationManager<Autho
 
     private final RedisUtils redisUtils;
 
-    @Value("${spring.application.name}")
-    private String applicationName;
     @Setter
     private List<String> ignoreUrls;
 
