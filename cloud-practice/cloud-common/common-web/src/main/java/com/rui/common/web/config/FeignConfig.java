@@ -1,6 +1,7 @@
 package com.rui.common.web.config;
 
 import feign.RequestInterceptor;
+import org.apache.http.util.Asserts;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -44,6 +45,7 @@ public class FeignConfig {
         return (template) -> {
             ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder
                     .getRequestAttributes();
+            Asserts.notNull(attributes, "ServletRequestAttributes is null");
             HttpServletRequest request = attributes.getRequest();
             //获取请求头
             Enumeration<String> headerNames = request.getHeaderNames();

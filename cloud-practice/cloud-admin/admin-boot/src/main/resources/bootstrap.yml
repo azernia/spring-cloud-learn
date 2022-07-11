@@ -5,6 +5,20 @@ spring:
   application:
     name: cloud-admin
   cloud:
+    sentinel:
+      enabled: true
+      eager: true # 取消控制台懒加载，项目启动即连接Sentinel
+      transport:
+        client-ip: 10.3.1.41
+        dashboard: 10.3.1.41:8858
+      datasource:
+        ds:
+          nacos:
+            server-addr: 10.211.55.9:8848
+            dataId: ${spring.application.name}-flow-rules
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
     nacos:
       # 注册中心
       discovery:

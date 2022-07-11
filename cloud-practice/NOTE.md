@@ -50,6 +50,21 @@ docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -v /usr/local
 
 ```
 
+## docker Sentinel
+```shell
+docker pull bladex/sentinel-dashboard
+docker run --name sentinel -d -p 8858:8858 -d bladex/sentinel-dashboard:1.8.0 
+docker run --name sentinel -p 8858:8858 -d bladex/sentinel-dashboard:1.8.0
+
+# mac 可用
+docker pull huoyingyang/sentinel-dashboard:1.8.3-arm64
+docker run --name sentinel -p 8858:8858 -d huoyingyang/sentinel-dashboard:1.8.3-arm64
+# 默认用户名密码
+# sentinel
+
+java -Dserver.port=8858 -Dcsp.sentinel.dashboard.server=localhost:8858 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.8.4.jar
+```
+
 ## 遇到的问题
 ```shell
 Server check fail, please check server 10.211.55.9 ,port 9848 is available , error ={}
