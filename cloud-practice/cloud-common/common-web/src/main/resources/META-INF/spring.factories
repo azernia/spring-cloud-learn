@@ -1,3 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.rui.common.web.handler.GlobalExceptionHandler,\
-  com.rui.common.web.config.FeignConfig
+  com.rui.common.web.config.FeignConfig,\
+  com.rui.common.web.sentinel.handler.DefaultBlockExceptionHandler,\
+  com.rui.common.web.sentinel.parser.impl.RequestOriginParserImpl
